@@ -3,7 +3,7 @@ package user;
 
 service user {
   rpc Register (UserInformation) returns (Result);
-  rpc Login (UserInformation) returns (Result);
+  rpc Login (UserLogin) returns (Result);
 }
 
 message UserInformation {
