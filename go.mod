@@ -1,4 +1,4 @@
-module github.com/Penetration-Platform-Go/gRPC-Files@master
+module github.com/Penetration-Platform-Go/gRPC-Files
 
 go 1.12
 
