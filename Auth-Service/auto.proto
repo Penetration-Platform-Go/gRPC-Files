@@ -1,0 +1,22 @@
+syntax = "proto3";
+package auth;
+
+service Auth {
+  rpc GetJWTTokenKey (Empty) returns (JWTTokenKey);
+  rpc GetToken (TokenMessages) returns (Token);
+}
+
+message Empty {}
+
+message JWTTokenKey {
+  string JWTTokenKey = 1;
+}
+
+message TokenMessages {
+  string username = 1;
+  bool isValid = 2;
+}
+
+message Token {
+  string JWT = 1;
+}
