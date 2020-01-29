@@ -1,0 +1,15 @@
+syntax = "proto3";
+package auth;
+
+service Auth {
+  rpc GetUsernameByToken (Token) returns (Username);
+  rpc GetToken (Username) returns (Token);
+}
+
+message Username {
+  string username = 1;
+}
+
+message Token {
+  string JWT = 1;
+}
