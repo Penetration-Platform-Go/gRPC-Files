@@ -1,0 +1,32 @@
+syntax = "proto3";
+package mongodb;
+
+service MongoDB {
+  rpc QueryProjectsByUsername (Username) returns (stream ProjectInformation);
+  rpc InsertProject (ProjectInformation) returns (Result);
+  rpc UpdateProjectById (ProjectInformation) returns (Result);
+  rpc DeleteProjectById (ProjectId) returns (Result);
+}
+
+message ProjectValue {
+  string temp = 1; 
+}
+
+message Username {
+  string username = 1;
+}
+
+message ProjectId {
+  string id = 1;
+}
+
+message ProjectInformation {
+  string id = 1;
+  string user = 2;
+  ProjectValue value = 3;
+}
+
+message Result {
+  bool isVaild = 1;
+  string value = 2;
+}
