@@ -4,8 +4,8 @@ package mongodb;
 service MongoDB {
   rpc QueryProjectsByUsername (Username) returns (stream ProjectInformation);
   rpc InsertProject (ProjectInformation) returns (Result);
-  rpc UpdateProjectById (ProjectInformation) returns (Result);
-  rpc DeleteProjectById (ProjectId) returns (Result);
+  rpc UpdateProjectByID (ProjectInformation) returns (Result);
+  rpc DeleteProjectByID (ProjectId) returns (Result);
 }
 
 message ProjectValue {
