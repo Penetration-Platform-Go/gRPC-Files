@@ -24,43 +24,137 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type ProjectValue struct {
-	Temp                 string   `protobuf:"bytes,1,opt,name=temp,proto3" json:"temp,omitempty"`
+type Ip struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ProjectValue) Reset()         { *m = ProjectValue{} }
-func (m *ProjectValue) String() string { return proto.CompactTextString(m) }
-func (*ProjectValue) ProtoMessage()    {}
-func (*ProjectValue) Descriptor() ([]byte, []int) {
+func (m *Ip) Reset()         { *m = Ip{} }
+func (m *Ip) String() string { return proto.CompactTextString(m) }
+func (*Ip) ProtoMessage()    {}
+func (*Ip) Descriptor() ([]byte, []int) {
 	return fileDescriptor_21010b45f990def2, []int{0}
 }
 
-func (m *ProjectValue) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ProjectValue.Unmarshal(m, b)
+func (m *Ip) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Ip.Unmarshal(m, b)
 }
-func (m *ProjectValue) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ProjectValue.Marshal(b, m, deterministic)
+func (m *Ip) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Ip.Marshal(b, m, deterministic)
 }
-func (m *ProjectValue) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProjectValue.Merge(m, src)
+func (m *Ip) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Ip.Merge(m, src)
 }
-func (m *ProjectValue) XXX_Size() int {
-	return xxx_messageInfo_ProjectValue.Size(m)
+func (m *Ip) XXX_Size() int {
+	return xxx_messageInfo_Ip.Size(m)
 }
-func (m *ProjectValue) XXX_DiscardUnknown() {
-	xxx_messageInfo_ProjectValue.DiscardUnknown(m)
+func (m *Ip) XXX_DiscardUnknown() {
+	xxx_messageInfo_Ip.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ProjectValue proto.InternalMessageInfo
+var xxx_messageInfo_Ip proto.InternalMessageInfo
 
-func (m *ProjectValue) GetTemp() string {
+func (m *Ip) GetId() string {
 	if m != nil {
-		return m.Temp
+		return m.Id
 	}
 	return ""
+}
+
+func (m *Ip) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type Column struct {
+	Connected            []bool   `protobuf:"varint,1,rep,packed,name=connected,proto3" json:"connected,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Column) Reset()         { *m = Column{} }
+func (m *Column) String() string { return proto.CompactTextString(m) }
+func (*Column) ProtoMessage()    {}
+func (*Column) Descriptor() ([]byte, []int) {
+	return fileDescriptor_21010b45f990def2, []int{1}
+}
+
+func (m *Column) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Column.Unmarshal(m, b)
+}
+func (m *Column) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Column.Marshal(b, m, deterministic)
+}
+func (m *Column) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Column.Merge(m, src)
+}
+func (m *Column) XXX_Size() int {
+	return xxx_messageInfo_Column.Size(m)
+}
+func (m *Column) XXX_DiscardUnknown() {
+	xxx_messageInfo_Column.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Column proto.InternalMessageInfo
+
+func (m *Column) GetConnected() []bool {
+	if m != nil {
+		return m.Connected
+	}
+	return nil
+}
+
+type Map struct {
+	Id                   string    `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Column               []*Column `protobuf:"bytes,2,rep,name=column,proto3" json:"column,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *Map) Reset()         { *m = Map{} }
+func (m *Map) String() string { return proto.CompactTextString(m) }
+func (*Map) ProtoMessage()    {}
+func (*Map) Descriptor() ([]byte, []int) {
+	return fileDescriptor_21010b45f990def2, []int{2}
+}
+
+func (m *Map) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Map.Unmarshal(m, b)
+}
+func (m *Map) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Map.Marshal(b, m, deterministic)
+}
+func (m *Map) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Map.Merge(m, src)
+}
+func (m *Map) XXX_Size() int {
+	return xxx_messageInfo_Map.Size(m)
+}
+func (m *Map) XXX_DiscardUnknown() {
+	xxx_messageInfo_Map.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Map proto.InternalMessageInfo
+
+func (m *Map) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *Map) GetColumn() []*Column {
+	if m != nil {
+		return m.Column
+	}
+	return nil
 }
 
 type Username struct {
@@ -74,7 +168,7 @@ func (m *Username) Reset()         { *m = Username{} }
 func (m *Username) String() string { return proto.CompactTextString(m) }
 func (*Username) ProtoMessage()    {}
 func (*Username) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{1}
+	return fileDescriptor_21010b45f990def2, []int{3}
 }
 
 func (m *Username) XXX_Unmarshal(b []byte) error {
@@ -113,7 +207,7 @@ func (m *ProjectId) Reset()         { *m = ProjectId{} }
 func (m *ProjectId) String() string { return proto.CompactTextString(m) }
 func (*ProjectId) ProtoMessage()    {}
 func (*ProjectId) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{2}
+	return fileDescriptor_21010b45f990def2, []int{4}
 }
 
 func (m *ProjectId) XXX_Unmarshal(b []byte) error {
@@ -142,19 +236,21 @@ func (m *ProjectId) GetId() string {
 }
 
 type ProjectInformation struct {
-	Id                   string        `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	User                 string        `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
-	Value                *ProjectValue `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	User                 string   `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
+	Score                int32    `protobuf:"varint,3,opt,name=score,proto3" json:"score,omitempty"`
+	Ip                   []*Ip    `protobuf:"bytes,4,rep,name=ip,proto3" json:"ip,omitempty"`
+	Map                  []*Map   `protobuf:"bytes,5,rep,name=map,proto3" json:"map,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ProjectInformation) Reset()         { *m = ProjectInformation{} }
 func (m *ProjectInformation) String() string { return proto.CompactTextString(m) }
 func (*ProjectInformation) ProtoMessage()    {}
 func (*ProjectInformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{3}
+	return fileDescriptor_21010b45f990def2, []int{5}
 }
 
 func (m *ProjectInformation) XXX_Unmarshal(b []byte) error {
@@ -189,9 +285,23 @@ func (m *ProjectInformation) GetUser() string {
 	return ""
 }
 
-func (m *ProjectInformation) GetValue() *ProjectValue {
+func (m *ProjectInformation) GetScore() int32 {
 	if m != nil {
-		return m.Value
+		return m.Score
+	}
+	return 0
+}
+
+func (m *ProjectInformation) GetIp() []*Ip {
+	if m != nil {
+		return m.Ip
+	}
+	return nil
+}
+
+func (m *ProjectInformation) GetMap() []*Map {
+	if m != nil {
+		return m.Map
 	}
 	return nil
 }
@@ -208,7 +318,7 @@ func (m *Result) Reset()         { *m = Result{} }
 func (m *Result) String() string { return proto.CompactTextString(m) }
 func (*Result) ProtoMessage()    {}
 func (*Result) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{4}
+	return fileDescriptor_21010b45f990def2, []int{6}
 }
 
 func (m *Result) XXX_Unmarshal(b []byte) error {
@@ -244,7 +354,9 @@ func (m *Result) GetValue() string {
 }
 
 func init() {
-	proto.RegisterType((*ProjectValue)(nil), "mongodb.ProjectValue")
+	proto.RegisterType((*Ip)(nil), "mongodb.Ip")
+	proto.RegisterType((*Column)(nil), "mongodb.Column")
+	proto.RegisterType((*Map)(nil), "mongodb.Map")
 	proto.RegisterType((*Username)(nil), "mongodb.Username")
 	proto.RegisterType((*ProjectId)(nil), "mongodb.ProjectId")
 	proto.RegisterType((*ProjectInformation)(nil), "mongodb.ProjectInformation")
@@ -254,26 +366,31 @@ func init() {
 func init() { proto.RegisterFile("mongodb.proto", fileDescriptor_21010b45f990def2) }
 
 var fileDescriptor_21010b45f990def2 = []byte{
-	// 292 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x52, 0x4f, 0x4b, 0xfb, 0x40,
-	0x10, 0x25, 0xf9, 0xfd, 0x6c, 0xd2, 0xd1, 0x28, 0x0e, 0x8a, 0x21, 0xbd, 0x94, 0x3d, 0x48, 0x41,
-	0x28, 0x52, 0x3d, 0x78, 0xe9, 0xa5, 0xf4, 0x52, 0x44, 0xd0, 0x40, 0x7b, 0x4f, 0xdd, 0x51, 0x22,
-	0x49, 0x36, 0x6c, 0x36, 0x42, 0xbf, 0x82, 0x9f, 0x5a, 0xb6, 0xbb, 0x1b, 0x4b, 0x0b, 0x1e, 0xbc,
-	0xcd, 0xcb, 0xbc, 0x3f, 0xf3, 0xc2, 0x42, 0x54, 0x8a, 0xea, 0x5d, 0xf0, 0xf5, 0xb8, 0x96, 0x42,
-	0x09, 0x0c, 0x2c, 0x64, 0x0c, 0x4e, 0x9e, 0xa5, 0xf8, 0xa0, 0x57, 0xb5, 0xca, 0x8a, 0x96, 0x10,
-	0xe1, 0xbf, 0xa2, 0xb2, 0x8e, 0xbd, 0xa1, 0x37, 0xea, 0xa7, 0xdb, 0x99, 0x5d, 0x43, 0xb8, 0x6c,
-	0x48, 0x56, 0x59, 0x49, 0x98, 0x40, 0xd8, 0xda, 0xd9, 0x72, 0x3a, 0xcc, 0x06, 0xd0, 0xb7, 0x5e,
-	0x0b, 0x8e, 0xa7, 0xe0, 0xe7, 0xdc, 0x52, 0xfc, 0x9c, 0x33, 0x02, 0x74, 0xcb, 0xea, 0x4d, 0xc8,
-	0x32, 0x53, 0xb9, 0xa8, 0xf6, 0x59, 0x3a, 0x5e, 0xdb, 0xc5, 0xbe, 0x89, 0xd7, 0x33, 0xde, 0xc0,
-	0xd1, 0xa7, 0xbe, 0x2d, 0xfe, 0x37, 0xf4, 0x46, 0xc7, 0x93, 0xcb, 0xb1, 0xab, 0xb2, 0x7b, 0x78,
-	0x6a, 0x38, 0xec, 0x01, 0x7a, 0x29, 0x35, 0x6d, 0xa1, 0x30, 0x86, 0x20, 0x6f, 0x56, 0x59, 0x5e,
-	0x18, 0xff, 0x30, 0x75, 0x10, 0x2f, 0x9c, 0xa1, 0x49, 0x31, 0x60, 0xf2, 0xe5, 0x43, 0xf0, 0xa4,
-	0x9d, 0xe7, 0x33, 0x7c, 0x84, 0xab, 0x97, 0x96, 0xe4, 0xc6, 0x26, 0x34, 0xb3, 0x4d, 0xf7, 0x03,
-	0xce, 0xbb, 0x78, 0xf7, 0x29, 0x19, 0xec, 0x5f, 0xb4, 0xd3, 0xf0, 0xd6, 0xc3, 0x29, 0x44, 0x8b,
-	0xaa, 0x21, 0xa9, 0xec, 0x16, 0x7f, 0xe3, 0x27, 0x67, 0xdd, 0xd2, 0xf6, 0x98, 0x42, 0xb4, 0xac,
-	0x79, 0xa6, 0xe8, 0x6f, 0xf2, 0x7b, 0x88, 0xe6, 0x54, 0xd0, 0x8f, 0x1c, 0x0f, 0xe4, 0xfc, 0x40,
-	0xb5, 0xee, 0x6d, 0x9f, 0xc9, 0xdd, 0x77, 0x00, 0x00, 0x00, 0xff, 0xff, 0x29, 0x64, 0x68, 0x3c,
-	0x37, 0x02, 0x00, 0x00,
+	// 376 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0x4d, 0xab, 0x9b, 0x40,
+	0x14, 0xc5, 0x31, 0x31, 0xe6, 0xa6, 0xb6, 0xe4, 0x52, 0xa8, 0x24, 0xa5, 0x04, 0x17, 0xa9, 0x74,
+	0x11, 0x4a, 0xda, 0x45, 0x37, 0xe9, 0x22, 0x75, 0x23, 0x25, 0xd0, 0x0e, 0xa4, 0xfb, 0x89, 0x4e,
+	0x8b, 0x45, 0x67, 0x06, 0x3f, 0x1e, 0xe4, 0x37, 0xbc, 0x3f, 0xf7, 0x7e, 0xd2, 0x43, 0x1d, 0x0d,
+	0xc4, 0x90, 0xc5, 0xdb, 0xcd, 0xb9, 0xc7, 0x73, 0xe6, 0xdc, 0x23, 0x03, 0x4e, 0x26, 0xc5, 0x3f,
+	0x19, 0x9f, 0x36, 0x2a, 0x97, 0xa5, 0xc4, 0x89, 0x86, 0xde, 0x27, 0x20, 0xa1, 0xc2, 0xd7, 0x40,
+	0x92, 0xd8, 0x35, 0x56, 0x86, 0x3f, 0xa5, 0x24, 0x89, 0xf1, 0x2d, 0x8c, 0x1f, 0x58, 0x5a, 0x71,
+	0x97, 0x34, 0xa3, 0x16, 0x78, 0x6b, 0xb0, 0x7e, 0xc8, 0xb4, 0xca, 0x04, 0xbe, 0x87, 0x69, 0x24,
+	0x85, 0xe0, 0x51, 0xc9, 0x6b, 0x99, 0xe9, 0xdb, 0xf4, 0x32, 0xf0, 0xbe, 0x83, 0x79, 0x60, 0x43,
+	0xd3, 0x8f, 0x60, 0x45, 0x8d, 0xdc, 0x25, 0x2b, 0xd3, 0x9f, 0x6d, 0xdf, 0x6c, 0xba, 0x4c, 0xad,
+	0x2b, 0xd5, 0xb4, 0xb7, 0x06, 0xfb, 0x58, 0xf0, 0x5c, 0xb0, 0x8c, 0xe3, 0x02, 0xec, 0x4a, 0x9f,
+	0xb5, 0x55, 0x8f, 0xbd, 0x25, 0x4c, 0x7f, 0xe5, 0xf2, 0x3f, 0x8f, 0xca, 0x30, 0xbe, 0xbe, 0xcd,
+	0x7b, 0x34, 0x00, 0x3b, 0x56, 0xfc, 0x95, 0x79, 0xc6, 0xca, 0x44, 0x8a, 0x41, 0x28, 0x84, 0x51,
+	0xed, 0xa7, 0x17, 0x6d, 0xce, 0xf5, 0xf6, 0x45, 0x24, 0x73, 0xee, 0x9a, 0x2b, 0xc3, 0x1f, 0xd3,
+	0x16, 0xe0, 0x12, 0x48, 0xa2, 0xdc, 0x51, 0x13, 0x7d, 0xd6, 0x47, 0x0f, 0x15, 0x25, 0x89, 0xc2,
+	0x0f, 0x60, 0x66, 0x4c, 0xb9, 0xe3, 0x86, 0x7d, 0xd5, 0xb3, 0x07, 0xa6, 0x68, 0x4d, 0x78, 0xdf,
+	0xc0, 0xa2, 0xbc, 0xa8, 0xd2, 0x12, 0x5d, 0x98, 0x24, 0xc5, 0x1f, 0x96, 0xa4, 0x6d, 0x0a, 0x9b,
+	0x76, 0xf0, 0x76, 0xe9, 0xdb, 0x27, 0x02, 0x93, 0x43, 0x6d, 0x17, 0xec, 0xf1, 0x27, 0xbc, 0xfb,
+	0x5d, 0xf1, 0xfc, 0xac, 0xf7, 0x2a, 0xf6, 0xe7, 0xbe, 0xa7, 0x79, 0x7f, 0x67, 0x37, 0x5a, 0x2c,
+	0xfb, 0xd1, 0xb0, 0x87, 0xcf, 0x06, 0x06, 0x30, 0xbf, 0x32, 0x0b, 0x03, 0xc4, 0x81, 0x26, 0xbe,
+	0xeb, 0x83, 0x3b, 0x70, 0x42, 0x51, 0xf0, 0xbc, 0xd4, 0x1c, 0xde, 0xfb, 0x7a, 0x71, 0xf9, 0xe5,
+	0xba, 0x8d, 0x1d, 0x38, 0x47, 0x15, 0xb3, 0x92, 0xbf, 0x4c, 0xfe, 0x15, 0x9c, 0x80, 0xa7, 0xfc,
+	0x22, 0xbf, 0x95, 0xff, 0x5a, 0x75, 0xb2, 0x9a, 0x37, 0xf0, 0xe5, 0x39, 0x00, 0x00, 0xff, 0xff,
+	0x5f, 0xaf, 0xcf, 0x91, 0x14, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -289,6 +406,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MongoDBClient interface {
 	QueryProjectsByUsername(ctx context.Context, in *Username, opts ...grpc.CallOption) (MongoDB_QueryProjectsByUsernameClient, error)
+	QueryProjectsByID(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*ProjectInformation, error)
 	InsertProject(ctx context.Context, in *ProjectInformation, opts ...grpc.CallOption) (*Result, error)
 	UpdateProject(ctx context.Context, in *ProjectInformation, opts ...grpc.CallOption) (*Result, error)
 	DeleteProject(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*Result, error)
@@ -334,6 +452,15 @@ func (x *mongoDBQueryProjectsByUsernameClient) Recv() (*ProjectInformation, erro
 	return m, nil
 }
 
+func (c *mongoDBClient) QueryProjectsByID(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*ProjectInformation, error) {
+	out := new(ProjectInformation)
+	err := c.cc.Invoke(ctx, "/mongodb.MongoDB/QueryProjectsByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *mongoDBClient) InsertProject(ctx context.Context, in *ProjectInformation, opts ...grpc.CallOption) (*Result, error) {
 	out := new(Result)
 	err := c.cc.Invoke(ctx, "/mongodb.MongoDB/InsertProject", in, out, opts...)
@@ -364,6 +491,7 @@ func (c *mongoDBClient) DeleteProject(ctx context.Context, in *ProjectId, opts .
 // MongoDBServer is the server API for MongoDB service.
 type MongoDBServer interface {
 	QueryProjectsByUsername(*Username, MongoDB_QueryProjectsByUsernameServer) error
+	QueryProjectsByID(context.Context, *ProjectId) (*ProjectInformation, error)
 	InsertProject(context.Context, *ProjectInformation) (*Result, error)
 	UpdateProject(context.Context, *ProjectInformation) (*Result, error)
 	DeleteProject(context.Context, *ProjectId) (*Result, error)
@@ -375,6 +503,9 @@ type UnimplementedMongoDBServer struct {
 
 func (*UnimplementedMongoDBServer) QueryProjectsByUsername(req *Username, srv MongoDB_QueryProjectsByUsernameServer) error {
 	return status.Errorf(codes.Unimplemented, "method QueryProjectsByUsername not implemented")
+}
+func (*UnimplementedMongoDBServer) QueryProjectsByID(ctx context.Context, req *ProjectId) (*ProjectInformation, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QueryProjectsByID not implemented")
 }
 func (*UnimplementedMongoDBServer) InsertProject(ctx context.Context, req *ProjectInformation) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertProject not implemented")
@@ -409,6 +540,24 @@ type mongoDBQueryProjectsByUsernameServer struct {
 
 func (x *mongoDBQueryProjectsByUsernameServer) Send(m *ProjectInformation) error {
 	return x.ServerStream.SendMsg(m)
+}
+
+func _MongoDB_QueryProjectsByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProjectId)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MongoDBServer).QueryProjectsByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/mongodb.MongoDB/QueryProjectsByID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MongoDBServer).QueryProjectsByID(ctx, req.(*ProjectId))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _MongoDB_InsertProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -469,6 +618,10 @@ var _MongoDB_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "mongodb.MongoDB",
 	HandlerType: (*MongoDBServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "QueryProjectsByID",
+			Handler:    _MongoDB_QueryProjectsByID_Handler,
+		},
 		{
 			MethodName: "InsertProject",
 			Handler:    _MongoDB_InsertProject_Handler,

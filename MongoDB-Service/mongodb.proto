@@ -3,13 +3,24 @@ package mongodb;
 
 service MongoDB {
   rpc QueryProjectsByUsername (Username) returns (stream ProjectInformation);
+  rpc QueryProjectsByID (ProjectId) returns (ProjectInformation);
   rpc InsertProject (ProjectInformation) returns (Result);
   rpc UpdateProject (ProjectInformation) returns (Result);
   rpc DeleteProject (ProjectId) returns (Result);
 }
 
-message ProjectValue {
-  string temp = 1; 
+message Ip {
+  string id = 1;
+  string value = 2; 
+}
+
+message Column {
+  repeated bool connected = 1;
+}
+
+message Map {
+  string id = 1;
+  repeated Column column = 2;
 }
 
 message Username {
@@ -23,7 +34,9 @@ message ProjectId {
 message ProjectInformation {
   string id = 1;
   string user = 2;
-  ProjectValue value = 3;
+  int32 score = 3;
+  repeated Ip ip = 4;
+  repeated Map map = 5;
 }
 
 message Result {
