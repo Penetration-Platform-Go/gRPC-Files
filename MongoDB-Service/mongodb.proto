@@ -36,7 +36,7 @@ message ProjectInformation {
   string user = 2;
   int32 score = 3;
   repeated Ip ip = 4;
-  repeated Map map = 5;
+  Map map = 5;
 }
 
 message Result {
