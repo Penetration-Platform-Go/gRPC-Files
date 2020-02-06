@@ -157,84 +157,6 @@ func (m *Map) GetColumn() []*Column {
 	return nil
 }
 
-type Username struct {
-	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *Username) Reset()         { *m = Username{} }
-func (m *Username) String() string { return proto.CompactTextString(m) }
-func (*Username) ProtoMessage()    {}
-func (*Username) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{3}
-}
-
-func (m *Username) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Username.Unmarshal(m, b)
-}
-func (m *Username) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Username.Marshal(b, m, deterministic)
-}
-func (m *Username) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Username.Merge(m, src)
-}
-func (m *Username) XXX_Size() int {
-	return xxx_messageInfo_Username.Size(m)
-}
-func (m *Username) XXX_DiscardUnknown() {
-	xxx_messageInfo_Username.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Username proto.InternalMessageInfo
-
-func (m *Username) GetUsername() string {
-	if m != nil {
-		return m.Username
-	}
-	return ""
-}
-
-type ProjectId struct {
-	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ProjectId) Reset()         { *m = ProjectId{} }
-func (m *ProjectId) String() string { return proto.CompactTextString(m) }
-func (*ProjectId) ProtoMessage()    {}
-func (*ProjectId) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{4}
-}
-
-func (m *ProjectId) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ProjectId.Unmarshal(m, b)
-}
-func (m *ProjectId) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ProjectId.Marshal(b, m, deterministic)
-}
-func (m *ProjectId) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProjectId.Merge(m, src)
-}
-func (m *ProjectId) XXX_Size() int {
-	return xxx_messageInfo_ProjectId.Size(m)
-}
-func (m *ProjectId) XXX_DiscardUnknown() {
-	xxx_messageInfo_ProjectId.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ProjectId proto.InternalMessageInfo
-
-func (m *ProjectId) GetId() string {
-	if m != nil {
-		return m.Id
-	}
-	return ""
-}
-
 type ProjectInformation struct {
 	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	User                 string   `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
@@ -250,7 +172,7 @@ func (m *ProjectInformation) Reset()         { *m = ProjectInformation{} }
 func (m *ProjectInformation) String() string { return proto.CompactTextString(m) }
 func (*ProjectInformation) ProtoMessage()    {}
 func (*ProjectInformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{5}
+	return fileDescriptor_21010b45f990def2, []int{3}
 }
 
 func (m *ProjectInformation) XXX_Unmarshal(b []byte) error {
@@ -318,7 +240,7 @@ func (m *Result) Reset()         { *m = Result{} }
 func (m *Result) String() string { return proto.CompactTextString(m) }
 func (*Result) ProtoMessage()    {}
 func (*Result) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21010b45f990def2, []int{6}
+	return fileDescriptor_21010b45f990def2, []int{4}
 }
 
 func (m *Result) XXX_Unmarshal(b []byte) error {
@@ -353,44 +275,130 @@ func (m *Result) GetValue() string {
 	return ""
 }
 
+type Value struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Value) Reset()         { *m = Value{} }
+func (m *Value) String() string { return proto.CompactTextString(m) }
+func (*Value) ProtoMessage()    {}
+func (*Value) Descriptor() ([]byte, []int) {
+	return fileDescriptor_21010b45f990def2, []int{5}
+}
+
+func (m *Value) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Value.Unmarshal(m, b)
+}
+func (m *Value) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Value.Marshal(b, m, deterministic)
+}
+func (m *Value) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Value.Merge(m, src)
+}
+func (m *Value) XXX_Size() int {
+	return xxx_messageInfo_Value.Size(m)
+}
+func (m *Value) XXX_DiscardUnknown() {
+	xxx_messageInfo_Value.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Value proto.InternalMessageInfo
+
+func (m *Value) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *Value) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type Condition struct {
+	Value                []*Value `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Condition) Reset()         { *m = Condition{} }
+func (m *Condition) String() string { return proto.CompactTextString(m) }
+func (*Condition) ProtoMessage()    {}
+func (*Condition) Descriptor() ([]byte, []int) {
+	return fileDescriptor_21010b45f990def2, []int{6}
+}
+
+func (m *Condition) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Condition.Unmarshal(m, b)
+}
+func (m *Condition) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Condition.Marshal(b, m, deterministic)
+}
+func (m *Condition) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Condition.Merge(m, src)
+}
+func (m *Condition) XXX_Size() int {
+	return xxx_messageInfo_Condition.Size(m)
+}
+func (m *Condition) XXX_DiscardUnknown() {
+	xxx_messageInfo_Condition.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Condition proto.InternalMessageInfo
+
+func (m *Condition) GetValue() []*Value {
+	if m != nil {
+		return m.Value
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*Ip)(nil), "mongodb.Ip")
 	proto.RegisterType((*Column)(nil), "mongodb.Column")
 	proto.RegisterType((*Map)(nil), "mongodb.Map")
-	proto.RegisterType((*Username)(nil), "mongodb.Username")
-	proto.RegisterType((*ProjectId)(nil), "mongodb.ProjectId")
 	proto.RegisterType((*ProjectInformation)(nil), "mongodb.ProjectInformation")
 	proto.RegisterType((*Result)(nil), "mongodb.Result")
+	proto.RegisterType((*Value)(nil), "mongodb.Value")
+	proto.RegisterType((*Condition)(nil), "mongodb.Condition")
 }
 
 func init() { proto.RegisterFile("mongodb.proto", fileDescriptor_21010b45f990def2) }
 
 var fileDescriptor_21010b45f990def2 = []byte{
-	// 377 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0x4f, 0xeb, 0xd3, 0x40,
-	0x14, 0x24, 0x9b, 0x36, 0x4d, 0x5f, 0x8d, 0xd2, 0x87, 0x60, 0x68, 0x45, 0x42, 0x0e, 0x35, 0x78,
-	0x28, 0x52, 0x3d, 0x78, 0xa9, 0x87, 0x9a, 0x4b, 0x90, 0x82, 0x2e, 0xd4, 0xfb, 0x36, 0x59, 0x25,
-	0x92, 0xec, 0x2e, 0xf9, 0x23, 0xf4, 0x33, 0xf8, 0xe5, 0xfc, 0x48, 0x92, 0x64, 0x93, 0x42, 0x53,
-	0x7a, 0xf8, 0xdd, 0x76, 0xde, 0x64, 0x66, 0xe7, 0x4d, 0x58, 0x70, 0x72, 0x29, 0x7e, 0xc9, 0xe4,
-	0xbc, 0x55, 0x85, 0xac, 0x24, 0xce, 0x34, 0xf4, 0xdf, 0x01, 0x89, 0x14, 0x3e, 0x07, 0x92, 0x26,
-	0xae, 0xe1, 0x19, 0xc1, 0x9c, 0x92, 0x34, 0xc1, 0x97, 0x30, 0xfd, 0xc3, 0xb2, 0x9a, 0xbb, 0xa4,
-	0x1d, 0x75, 0xc0, 0xdf, 0x80, 0xf5, 0x45, 0x66, 0x75, 0x2e, 0xf0, 0x35, 0xcc, 0x63, 0x29, 0x04,
-	0x8f, 0x2b, 0xde, 0xc8, 0xcc, 0xc0, 0xa6, 0xd7, 0x81, 0xff, 0x19, 0xcc, 0x23, 0x1b, 0x9b, 0xbe,
-	0x05, 0x2b, 0x6e, 0xe5, 0x2e, 0xf1, 0xcc, 0x60, 0xb1, 0x7b, 0xb1, 0xed, 0x33, 0x75, 0xae, 0x54,
-	0xd3, 0xfe, 0x06, 0xec, 0x53, 0xc9, 0x0b, 0xc1, 0x72, 0x8e, 0x2b, 0xb0, 0x6b, 0x7d, 0xd6, 0x56,
-	0x03, 0xf6, 0xd7, 0x30, 0xff, 0x56, 0xc8, 0xdf, 0x3c, 0xae, 0xa2, 0xe4, 0xf6, 0x36, 0xff, 0xaf,
-	0x01, 0xd8, 0xb3, 0xe2, 0xa7, 0x2c, 0x72, 0x56, 0xa5, 0x52, 0x8c, 0x42, 0x21, 0x4c, 0x1a, 0x3f,
-	0xbd, 0x68, 0x7b, 0x6e, 0xb6, 0x2f, 0x63, 0x59, 0x70, 0xd7, 0xf4, 0x8c, 0x60, 0x4a, 0x3b, 0x80,
-	0x6b, 0x20, 0xa9, 0x72, 0x27, 0x6d, 0xf4, 0xc5, 0x10, 0x3d, 0x52, 0x94, 0xa4, 0x0a, 0xdf, 0x80,
-	0x99, 0x33, 0xe5, 0x4e, 0x3d, 0x23, 0x58, 0xec, 0x9e, 0x0d, 0xec, 0x91, 0x29, 0xda, 0x10, 0xfe,
-	0x27, 0xb0, 0x28, 0x2f, 0xeb, 0xac, 0x42, 0x17, 0x66, 0x69, 0xf9, 0x83, 0xa5, 0x59, 0x97, 0xc2,
-	0xa6, 0x3d, 0xbc, 0x5f, 0xfa, 0xee, 0x1f, 0x81, 0xd9, 0xb1, 0xb1, 0x0b, 0x0f, 0xf8, 0x15, 0x5e,
-	0x7d, 0xaf, 0x79, 0x71, 0xd1, 0x7b, 0x95, 0x87, 0xcb, 0xd0, 0xd3, 0x72, 0xb8, 0xb3, 0x1f, 0xad,
-	0xd6, 0xc3, 0x68, 0xdc, 0xc3, 0x7b, 0x03, 0x43, 0x58, 0xde, 0x98, 0x45, 0x21, 0xe2, 0x48, 0x93,
-	0x3c, 0xf4, 0xc1, 0x3d, 0x38, 0x91, 0x28, 0x79, 0x51, 0x69, 0x0e, 0x1f, 0x7d, 0xbd, 0xba, 0xfe,
-	0x72, 0xdd, 0xc6, 0x1e, 0x9c, 0x93, 0x4a, 0x58, 0xc5, 0x9f, 0x26, 0xff, 0x08, 0x4e, 0xc8, 0x33,
-	0x7e, 0x95, 0xdf, 0xcb, 0x7f, 0xab, 0x3a, 0x5b, 0xed, 0x1b, 0xf8, 0xf0, 0x3f, 0x00, 0x00, 0xff,
-	0xff, 0x4a, 0x04, 0x2f, 0xfb, 0x14, 0x03, 0x00, 0x00,
+	// 374 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x52, 0xbf, 0x4f, 0xe3, 0x30,
+	0x18, 0x55, 0x9c, 0x26, 0x6d, 0xbf, 0x5e, 0x7a, 0x27, 0xeb, 0x86, 0xa8, 0x3d, 0x9d, 0xa2, 0xe8,
+	0x74, 0x17, 0xdd, 0x50, 0xa0, 0x30, 0xb0, 0x94, 0xa1, 0xed, 0x92, 0xa1, 0x12, 0x58, 0xa2, 0x7b,
+	0x9a, 0x18, 0x64, 0x48, 0x6c, 0x2b, 0x3f, 0x90, 0x3a, 0x32, 0xf3, 0x4f, 0xa3, 0x38, 0x6e, 0x8a,
+	0x28, 0x65, 0x60, 0xfb, 0xde, 0xf7, 0xfc, 0x9e, 0x9f, 0x5f, 0x02, 0x4e, 0x26, 0xf8, 0xbd, 0x48,
+	0x36, 0x13, 0x99, 0x8b, 0x52, 0xe0, 0xae, 0x86, 0xfe, 0x7f, 0x40, 0xa1, 0xc4, 0x43, 0x40, 0x2c,
+	0x71, 0x0d, 0xcf, 0x08, 0xfa, 0x04, 0xb1, 0x04, 0xff, 0x04, 0xeb, 0x29, 0x4a, 0x2b, 0xea, 0x22,
+	0xb5, 0x6a, 0x80, 0xff, 0x17, 0xec, 0x85, 0x48, 0xab, 0x8c, 0xe3, 0x5f, 0xd0, 0x8f, 0x05, 0xe7,
+	0x34, 0x2e, 0x69, 0x2d, 0x33, 0x83, 0x1e, 0xd9, 0x2f, 0xfc, 0x2b, 0x30, 0x57, 0xd1, 0xa1, 0xe9,
+	0x3f, 0xb0, 0x63, 0x25, 0x77, 0x91, 0x67, 0x06, 0x83, 0xe9, 0xf7, 0xc9, 0x2e, 0x53, 0xe3, 0x4a,
+	0x34, 0xed, 0xbf, 0x18, 0x80, 0xaf, 0x73, 0xf1, 0x40, 0xe3, 0x32, 0xe4, 0x77, 0x22, 0xcf, 0xa2,
+	0x92, 0x09, 0x7e, 0xe0, 0x87, 0xa1, 0x53, 0x15, 0x34, 0xd7, 0x19, 0xd5, 0x5c, 0x07, 0x2f, 0x62,
+	0x91, 0x53, 0xd7, 0xf4, 0x8c, 0xc0, 0x22, 0x0d, 0xc0, 0x63, 0x40, 0x4c, 0xba, 0x1d, 0x75, 0xeb,
+	0xa0, 0xbd, 0x35, 0x94, 0x04, 0x31, 0x89, 0x7f, 0x83, 0x99, 0x45, 0xd2, 0xb5, 0x3c, 0x23, 0x18,
+	0x4c, 0xbf, 0xb5, 0xec, 0x2a, 0x92, 0xa4, 0x26, 0xfc, 0x4b, 0xb0, 0x09, 0x2d, 0xaa, 0xb4, 0xc4,
+	0x2e, 0x74, 0x59, 0xb1, 0x8e, 0x58, 0xda, 0xa4, 0xe8, 0x91, 0x1d, 0x3c, 0xd2, 0xd7, 0x09, 0x58,
+	0xeb, 0x7a, 0xc0, 0x3f, 0xc0, 0x7c, 0xa4, 0x5b, 0x1d, 0xbd, 0x1e, 0x8f, 0x08, 0xce, 0xa0, 0xbf,
+	0x10, 0x3c, 0x61, 0xea, 0xb9, 0x7f, 0x76, 0x47, 0x0c, 0x95, 0x7b, 0xd8, 0x26, 0x53, 0x9e, 0x5a,
+	0x32, 0x7d, 0x46, 0xd0, 0x5d, 0xd5, 0xc4, 0x72, 0x8e, 0xe7, 0xe0, 0xdc, 0x54, 0x34, 0xdf, 0xea,
+	0xee, 0x0a, 0x8c, 0xdf, 0x34, 0xac, 0x6d, 0x47, 0xe3, 0x76, 0x77, 0x58, 0xf1, 0xa9, 0x81, 0x67,
+	0xe0, 0x84, 0xbc, 0xa0, 0x79, 0xa9, 0x59, 0xfc, 0xd9, 0xf9, 0xd1, 0xfe, 0x13, 0xea, 0x8a, 0x66,
+	0xe0, 0xdc, 0xca, 0x24, 0x2a, 0xe9, 0xd7, 0xe4, 0x17, 0xe0, 0x2c, 0x69, 0x4a, 0xf7, 0xf2, 0x8f,
+	0x5e, 0xf0, 0x5e, 0xb5, 0xb1, 0xd5, 0x3f, 0x7d, 0xfe, 0x1a, 0x00, 0x00, 0xff, 0xff, 0xa8, 0xda,
+	0x8c, 0x4a, 0xe4, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -405,11 +413,10 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MongoDBClient interface {
-	QueryProjectsByUsername(ctx context.Context, in *Username, opts ...grpc.CallOption) (MongoDB_QueryProjectsByUsernameClient, error)
-	QueryProjectsByID(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*ProjectInformation, error)
+	QueryProjects(ctx context.Context, in *Condition, opts ...grpc.CallOption) (MongoDB_QueryProjectsClient, error)
 	InsertProject(ctx context.Context, in *ProjectInformation, opts ...grpc.CallOption) (*Result, error)
 	UpdateProject(ctx context.Context, in *ProjectInformation, opts ...grpc.CallOption) (*Result, error)
-	DeleteProject(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*Result, error)
+	DeleteProject(ctx context.Context, in *Condition, opts ...grpc.CallOption) (*Result, error)
 }
 
 type mongoDBClient struct {
@@ -420,12 +427,12 @@ func NewMongoDBClient(cc *grpc.ClientConn) MongoDBClient {
 	return &mongoDBClient{cc}
 }
 
-func (c *mongoDBClient) QueryProjectsByUsername(ctx context.Context, in *Username, opts ...grpc.CallOption) (MongoDB_QueryProjectsByUsernameClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_MongoDB_serviceDesc.Streams[0], "/mongodb.MongoDB/QueryProjectsByUsername", opts...)
+func (c *mongoDBClient) QueryProjects(ctx context.Context, in *Condition, opts ...grpc.CallOption) (MongoDB_QueryProjectsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_MongoDB_serviceDesc.Streams[0], "/mongodb.MongoDB/QueryProjects", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &mongoDBQueryProjectsByUsernameClient{stream}
+	x := &mongoDBQueryProjectsClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -435,30 +442,21 @@ func (c *mongoDBClient) QueryProjectsByUsername(ctx context.Context, in *Usernam
 	return x, nil
 }
 
-type MongoDB_QueryProjectsByUsernameClient interface {
+type MongoDB_QueryProjectsClient interface {
 	Recv() (*ProjectInformation, error)
 	grpc.ClientStream
 }
 
-type mongoDBQueryProjectsByUsernameClient struct {
+type mongoDBQueryProjectsClient struct {
 	grpc.ClientStream
 }
 
-func (x *mongoDBQueryProjectsByUsernameClient) Recv() (*ProjectInformation, error) {
+func (x *mongoDBQueryProjectsClient) Recv() (*ProjectInformation, error) {
 	m := new(ProjectInformation)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
-}
-
-func (c *mongoDBClient) QueryProjectsByID(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*ProjectInformation, error) {
-	out := new(ProjectInformation)
-	err := c.cc.Invoke(ctx, "/mongodb.MongoDB/QueryProjectsByID", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *mongoDBClient) InsertProject(ctx context.Context, in *ProjectInformation, opts ...grpc.CallOption) (*Result, error) {
@@ -479,7 +477,7 @@ func (c *mongoDBClient) UpdateProject(ctx context.Context, in *ProjectInformatio
 	return out, nil
 }
 
-func (c *mongoDBClient) DeleteProject(ctx context.Context, in *ProjectId, opts ...grpc.CallOption) (*Result, error) {
+func (c *mongoDBClient) DeleteProject(ctx context.Context, in *Condition, opts ...grpc.CallOption) (*Result, error) {
 	out := new(Result)
 	err := c.cc.Invoke(ctx, "/mongodb.MongoDB/DeleteProject", in, out, opts...)
 	if err != nil {
@@ -490,22 +488,18 @@ func (c *mongoDBClient) DeleteProject(ctx context.Context, in *ProjectId, opts .
 
 // MongoDBServer is the server API for MongoDB service.
 type MongoDBServer interface {
-	QueryProjectsByUsername(*Username, MongoDB_QueryProjectsByUsernameServer) error
-	QueryProjectsByID(context.Context, *ProjectId) (*ProjectInformation, error)
+	QueryProjects(*Condition, MongoDB_QueryProjectsServer) error
 	InsertProject(context.Context, *ProjectInformation) (*Result, error)
 	UpdateProject(context.Context, *ProjectInformation) (*Result, error)
-	DeleteProject(context.Context, *ProjectId) (*Result, error)
+	DeleteProject(context.Context, *Condition) (*Result, error)
 }
 
 // UnimplementedMongoDBServer can be embedded to have forward compatible implementations.
 type UnimplementedMongoDBServer struct {
 }
 
-func (*UnimplementedMongoDBServer) QueryProjectsByUsername(req *Username, srv MongoDB_QueryProjectsByUsernameServer) error {
-	return status.Errorf(codes.Unimplemented, "method QueryProjectsByUsername not implemented")
-}
-func (*UnimplementedMongoDBServer) QueryProjectsByID(ctx context.Context, req *ProjectId) (*ProjectInformation, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method QueryProjectsByID not implemented")
+func (*UnimplementedMongoDBServer) QueryProjects(req *Condition, srv MongoDB_QueryProjectsServer) error {
+	return status.Errorf(codes.Unimplemented, "method QueryProjects not implemented")
 }
 func (*UnimplementedMongoDBServer) InsertProject(ctx context.Context, req *ProjectInformation) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertProject not implemented")
@@ -513,7 +507,7 @@ func (*UnimplementedMongoDBServer) InsertProject(ctx context.Context, req *Proje
 func (*UnimplementedMongoDBServer) UpdateProject(ctx context.Context, req *ProjectInformation) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
 }
-func (*UnimplementedMongoDBServer) DeleteProject(ctx context.Context, req *ProjectId) (*Result, error) {
+func (*UnimplementedMongoDBServer) DeleteProject(ctx context.Context, req *Condition) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
 }
 
@@ -521,43 +515,25 @@ func RegisterMongoDBServer(s *grpc.Server, srv MongoDBServer) {
 	s.RegisterService(&_MongoDB_serviceDesc, srv)
 }
 
-func _MongoDB_QueryProjectsByUsername_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(Username)
+func _MongoDB_QueryProjects_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(Condition)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(MongoDBServer).QueryProjectsByUsername(m, &mongoDBQueryProjectsByUsernameServer{stream})
+	return srv.(MongoDBServer).QueryProjects(m, &mongoDBQueryProjectsServer{stream})
 }
 
-type MongoDB_QueryProjectsByUsernameServer interface {
+type MongoDB_QueryProjectsServer interface {
 	Send(*ProjectInformation) error
 	grpc.ServerStream
 }
 
-type mongoDBQueryProjectsByUsernameServer struct {
+type mongoDBQueryProjectsServer struct {
 	grpc.ServerStream
 }
 
-func (x *mongoDBQueryProjectsByUsernameServer) Send(m *ProjectInformation) error {
+func (x *mongoDBQueryProjectsServer) Send(m *ProjectInformation) error {
 	return x.ServerStream.SendMsg(m)
-}
-
-func _MongoDB_QueryProjectsByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProjectId)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MongoDBServer).QueryProjectsByID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/mongodb.MongoDB/QueryProjectsByID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MongoDBServer).QueryProjectsByID(ctx, req.(*ProjectId))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _MongoDB_InsertProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -597,7 +573,7 @@ func _MongoDB_UpdateProject_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _MongoDB_DeleteProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProjectId)
+	in := new(Condition)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -609,7 +585,7 @@ func _MongoDB_DeleteProject_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/mongodb.MongoDB/DeleteProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MongoDBServer).DeleteProject(ctx, req.(*ProjectId))
+		return srv.(MongoDBServer).DeleteProject(ctx, req.(*Condition))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -618,10 +594,6 @@ var _MongoDB_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "mongodb.MongoDB",
 	HandlerType: (*MongoDBServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "QueryProjectsByID",
-			Handler:    _MongoDB_QueryProjectsByID_Handler,
-		},
 		{
 			MethodName: "InsertProject",
 			Handler:    _MongoDB_InsertProject_Handler,
@@ -637,8 +609,8 @@ var _MongoDB_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "QueryProjectsByUsername",
-			Handler:       _MongoDB_QueryProjectsByUsername_Handler,
+			StreamName:    "QueryProjects",
+			Handler:       _MongoDB_QueryProjects_Handler,
 			ServerStreams: true,
 		},
 	},
