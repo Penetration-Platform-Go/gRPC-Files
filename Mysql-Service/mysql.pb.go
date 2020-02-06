@@ -181,33 +181,124 @@ func (m *Result) GetValue() string {
 	return ""
 }
 
+type Value struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Value) Reset()         { *m = Value{} }
+func (m *Value) String() string { return proto.CompactTextString(m) }
+func (*Value) ProtoMessage()    {}
+func (*Value) Descriptor() ([]byte, []int) {
+	return fileDescriptor_ca2c41a7352f42e6, []int{3}
+}
+
+func (m *Value) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Value.Unmarshal(m, b)
+}
+func (m *Value) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Value.Marshal(b, m, deterministic)
+}
+func (m *Value) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Value.Merge(m, src)
+}
+func (m *Value) XXX_Size() int {
+	return xxx_messageInfo_Value.Size(m)
+}
+func (m *Value) XXX_DiscardUnknown() {
+	xxx_messageInfo_Value.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Value proto.InternalMessageInfo
+
+func (m *Value) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *Value) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type Condition struct {
+	Value                []*Value `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Condition) Reset()         { *m = Condition{} }
+func (m *Condition) String() string { return proto.CompactTextString(m) }
+func (*Condition) ProtoMessage()    {}
+func (*Condition) Descriptor() ([]byte, []int) {
+	return fileDescriptor_ca2c41a7352f42e6, []int{4}
+}
+
+func (m *Condition) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Condition.Unmarshal(m, b)
+}
+func (m *Condition) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Condition.Marshal(b, m, deterministic)
+}
+func (m *Condition) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Condition.Merge(m, src)
+}
+func (m *Condition) XXX_Size() int {
+	return xxx_messageInfo_Condition.Size(m)
+}
+func (m *Condition) XXX_DiscardUnknown() {
+	xxx_messageInfo_Condition.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Condition proto.InternalMessageInfo
+
+func (m *Condition) GetValue() []*Value {
+	if m != nil {
+		return m.Value
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*Username)(nil), "auth.Username")
 	proto.RegisterType((*UserInformation)(nil), "auth.UserInformation")
 	proto.RegisterType((*Result)(nil), "auth.Result")
+	proto.RegisterType((*Value)(nil), "auth.Value")
+	proto.RegisterType((*Condition)(nil), "auth.Condition")
 }
 
 func init() { proto.RegisterFile("mysql.proto", fileDescriptor_ca2c41a7352f42e6) }
 
 var fileDescriptor_ca2c41a7352f42e6 = []byte{
-	// 257 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x91, 0xcf, 0x4a, 0xc4, 0x30,
-	0x10, 0xc6, 0xa9, 0x6e, 0xd7, 0x3a, 0x8a, 0x42, 0x54, 0x08, 0x3d, 0x49, 0x0f, 0xe2, 0xa9, 0xb0,
-	0x7a, 0xf1, 0xe0, 0xc9, 0xdb, 0x1e, 0x3c, 0x58, 0x58, 0xef, 0xd1, 0x8e, 0x6c, 0x30, 0x4d, 0x6a,
-	0xfe, 0x28, 0x7d, 0x0c, 0x9f, 0xc3, 0x97, 0x94, 0x49, 0xda, 0xd5, 0x83, 0xc8, 0xde, 0xfa, 0xeb,
-	0x37, 0xbf, 0x30, 0xf9, 0x02, 0x07, 0xdd, 0xe0, 0xde, 0x54, 0xdd, 0x5b, 0xe3, 0x0d, 0x9b, 0x89,
-	0xe0, 0xd7, 0xd5, 0x05, 0x14, 0x2b, 0x87, 0x56, 0x8b, 0x0e, 0x59, 0x09, 0x45, 0x18, 0xbf, 0x79,
-	0x76, 0x9e, 0x5d, 0xee, 0x37, 0x1b, 0xae, 0x3e, 0x33, 0x38, 0xa6, 0xc1, 0xa5, 0x7e, 0x31, 0xb6,
-	0x13, 0x5e, 0x1a, 0xfd, 0xdf, 0x3c, 0x65, 0xbd, 0x70, 0xee, 0xc3, 0xd8, 0x96, 0xef, 0xa4, 0x6c,
-	0x62, 0x76, 0x0a, 0x39, 0x76, 0x42, 0x2a, 0xbe, 0x1b, 0x83, 0x04, 0x64, 0x68, 0xf9, 0xfc, 0x1a,
-	0x4f, 0x9b, 0x25, 0x63, 0x62, 0x32, 0xfa, 0xb5, 0xf1, 0x86, 0xe7, 0xc9, 0x88, 0x50, 0xdd, 0xc0,
-	0xbc, 0x41, 0x17, 0x94, 0x67, 0x1c, 0xf6, 0xa4, 0x7b, 0x14, 0x52, 0xb5, 0x71, 0x91, 0xa2, 0x99,
-	0x90, 0xcc, 0x77, 0xa1, 0x02, 0x8e, 0x4b, 0x24, 0xb8, 0xfa, 0xca, 0x20, 0xbf, 0xa7, 0x2e, 0xd8,
-	0x2d, 0x9c, 0x3c, 0x04, 0xb4, 0x03, 0xdd, 0xed, 0x6e, 0xd8, 0x54, 0x71, 0x54, 0x53, 0x3b, 0xf5,
-	0xc4, 0xe5, 0xd9, 0x0f, 0xff, 0x6e, 0x60, 0x01, 0xb0, 0xd4, 0x0e, 0xad, 0xa7, 0x80, 0xfd, 0x3d,
-	0x54, 0x1e, 0xa6, 0xdf, 0xe3, 0xaa, 0x0b, 0x80, 0x55, 0xdf, 0x0a, 0x8f, 0x5b, 0x2b, 0x4f, 0xf3,
-	0xf8, 0x60, 0xd7, 0xdf, 0x01, 0x00, 0x00, 0xff, 0xff, 0xf2, 0x21, 0x4a, 0x60, 0xbf, 0x01, 0x00,
-	0x00,
+	// 306 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x92, 0xcd, 0x4a, 0xc3, 0x40,
+	0x14, 0x85, 0x19, 0xdb, 0xd4, 0xf4, 0x46, 0xa8, 0x0c, 0x0a, 0x21, 0xab, 0x9a, 0x85, 0x14, 0x84,
+	0x68, 0x2b, 0x88, 0x7b, 0xdd, 0x74, 0xe1, 0xc2, 0x40, 0xbb, 0x1f, 0xcd, 0x48, 0x87, 0x4e, 0x66,
+	0xe2, 0xcc, 0x44, 0xc9, 0x63, 0xf8, 0x6a, 0x3e, 0x91, 0xcc, 0x4f, 0x0a, 0xfe, 0xe2, 0xee, 0x9e,
+	0xb9, 0xe7, 0xbb, 0x9c, 0x1c, 0x02, 0x49, 0xdd, 0xe9, 0x67, 0x5e, 0x34, 0x4a, 0x1a, 0x89, 0x87,
+	0xa4, 0x35, 0x9b, 0xfc, 0x14, 0xe2, 0x95, 0xa6, 0x4a, 0x90, 0x9a, 0xe2, 0x0c, 0xe2, 0x36, 0xcc,
+	0x29, 0x9a, 0xa2, 0xd9, 0xb8, 0xdc, 0xe9, 0xfc, 0x0d, 0xc1, 0xc4, 0x1a, 0x97, 0xe2, 0x49, 0xaa,
+	0x9a, 0x18, 0x26, 0xc5, 0x5f, 0x7e, 0xbb, 0x6b, 0x88, 0xd6, 0xaf, 0x52, 0x55, 0xe9, 0x9e, 0xdf,
+	0xf5, 0x1a, 0x1f, 0x41, 0x44, 0x6b, 0xc2, 0x78, 0x3a, 0x70, 0x0b, 0x2f, 0x2c, 0x21, 0xd8, 0xe3,
+	0xd6, 0x5d, 0x1b, 0x7a, 0xa2, 0xd7, 0x96, 0x68, 0x36, 0xd2, 0xc8, 0x34, 0xf2, 0x84, 0x13, 0xf9,
+	0x35, 0x8c, 0x4a, 0xaa, 0x5b, 0x6e, 0x70, 0x0a, 0xfb, 0x4c, 0xaf, 0x09, 0xe3, 0x95, 0x0b, 0x12,
+	0x97, 0xbd, 0xb4, 0xe4, 0x0b, 0xe1, 0x2d, 0x0d, 0x21, 0xbc, 0xc8, 0xcf, 0x21, 0x5a, 0xdb, 0x01,
+	0x1f, 0xc2, 0x60, 0x4b, 0xbb, 0x90, 0xde, 0x8e, 0xbf, 0x00, 0x05, 0x8c, 0x6f, 0xa4, 0xa8, 0x98,
+	0xfb, 0xee, 0x93, 0xde, 0x82, 0xa6, 0x83, 0x59, 0xb2, 0x48, 0x0a, 0xdb, 0x64, 0xe1, 0x0e, 0x06,
+	0xff, 0xe2, 0x1d, 0x41, 0x74, 0x67, 0xcb, 0xc6, 0x57, 0x00, 0xf7, 0x2d, 0x55, 0x9d, 0x2d, 0x4f,
+	0xe3, 0x89, 0xf7, 0xee, 0x6e, 0x65, 0xc7, 0xfe, 0xe1, 0x4b, 0xb5, 0x17, 0x08, 0xcf, 0x01, 0x96,
+	0x42, 0x53, 0x65, 0xec, 0x0a, 0xff, 0x6c, 0xcb, 0x0e, 0xfc, 0x73, 0x68, 0x61, 0x0e, 0xb0, 0x6a,
+	0x2a, 0x62, 0xe8, 0xff, 0x91, 0x33, 0x80, 0x5b, 0xca, 0x69, 0x40, 0xbe, 0xa5, 0xfb, 0x64, 0x7e,
+	0x18, 0xb9, 0x1f, 0xe7, 0xf2, 0x23, 0x00, 0x00, 0xff, 0xff, 0xd5, 0xca, 0xfd, 0x18, 0x47, 0x02,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -222,9 +313,10 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MysqlClient interface {
-	QueryUserByUsername(ctx context.Context, in *Username, opts ...grpc.CallOption) (*UserInformation, error)
+	QueryUsers(ctx context.Context, in *Condition, opts ...grpc.CallOption) (Mysql_QueryUsersClient, error)
 	InsertUser(ctx context.Context, in *UserInformation, opts ...grpc.CallOption) (*Result, error)
 	UpdateUser(ctx context.Context, in *UserInformation, opts ...grpc.CallOption) (*Result, error)
+	DeleteUser(ctx context.Context, in *Condition, opts ...grpc.CallOption) (*Result, error)
 }
 
 type mysqlClient struct {
@@ -235,13 +327,36 @@ func NewMysqlClient(cc *grpc.ClientConn) MysqlClient {
 	return &mysqlClient{cc}
 }
 
-func (c *mysqlClient) QueryUserByUsername(ctx context.Context, in *Username, opts ...grpc.CallOption) (*UserInformation, error) {
-	out := new(UserInformation)
-	err := c.cc.Invoke(ctx, "/auth.Mysql/QueryUserByUsername", in, out, opts...)
+func (c *mysqlClient) QueryUsers(ctx context.Context, in *Condition, opts ...grpc.CallOption) (Mysql_QueryUsersClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Mysql_serviceDesc.Streams[0], "/auth.Mysql/QueryUsers", opts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &mysqlQueryUsersClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Mysql_QueryUsersClient interface {
+	Recv() (*UserInformation, error)
+	grpc.ClientStream
+}
+
+type mysqlQueryUsersClient struct {
+	grpc.ClientStream
+}
+
+func (x *mysqlQueryUsersClient) Recv() (*UserInformation, error) {
+	m := new(UserInformation)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 func (c *mysqlClient) InsertUser(ctx context.Context, in *UserInformation, opts ...grpc.CallOption) (*Result, error) {
@@ -262,19 +377,29 @@ func (c *mysqlClient) UpdateUser(ctx context.Context, in *UserInformation, opts 
 	return out, nil
 }
 
+func (c *mysqlClient) DeleteUser(ctx context.Context, in *Condition, opts ...grpc.CallOption) (*Result, error) {
+	out := new(Result)
+	err := c.cc.Invoke(ctx, "/auth.Mysql/DeleteUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MysqlServer is the server API for Mysql service.
 type MysqlServer interface {
-	QueryUserByUsername(context.Context, *Username) (*UserInformation, error)
+	QueryUsers(*Condition, Mysql_QueryUsersServer) error
 	InsertUser(context.Context, *UserInformation) (*Result, error)
 	UpdateUser(context.Context, *UserInformation) (*Result, error)
+	DeleteUser(context.Context, *Condition) (*Result, error)
 }
 
 // UnimplementedMysqlServer can be embedded to have forward compatible implementations.
 type UnimplementedMysqlServer struct {
 }
 
-func (*UnimplementedMysqlServer) QueryUserByUsername(ctx context.Context, req *Username) (*UserInformation, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method QueryUserByUsername not implemented")
+func (*UnimplementedMysqlServer) QueryUsers(req *Condition, srv Mysql_QueryUsersServer) error {
+	return status.Errorf(codes.Unimplemented, "method QueryUsers not implemented")
 }
 func (*UnimplementedMysqlServer) InsertUser(ctx context.Context, req *UserInformation) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertUser not implemented")
@@ -282,27 +407,33 @@ func (*UnimplementedMysqlServer) InsertUser(ctx context.Context, req *UserInform
 func (*UnimplementedMysqlServer) UpdateUser(ctx context.Context, req *UserInformation) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
+func (*UnimplementedMysqlServer) DeleteUser(ctx context.Context, req *Condition) (*Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
+}
 
 func RegisterMysqlServer(s *grpc.Server, srv MysqlServer) {
 	s.RegisterService(&_Mysql_serviceDesc, srv)
 }
 
-func _Mysql_QueryUserByUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Username)
-	if err := dec(in); err != nil {
-		return nil, err
+func _Mysql_QueryUsers_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(Condition)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(MysqlServer).QueryUserByUsername(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/auth.Mysql/QueryUserByUsername",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MysqlServer).QueryUserByUsername(ctx, req.(*Username))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(MysqlServer).QueryUsers(m, &mysqlQueryUsersServer{stream})
+}
+
+type Mysql_QueryUsersServer interface {
+	Send(*UserInformation) error
+	grpc.ServerStream
+}
+
+type mysqlQueryUsersServer struct {
+	grpc.ServerStream
+}
+
+func (x *mysqlQueryUsersServer) Send(m *UserInformation) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 func _Mysql_InsertUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -341,14 +472,28 @@ func _Mysql_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Mysql_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Condition)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MysqlServer).DeleteUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/auth.Mysql/DeleteUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MysqlServer).DeleteUser(ctx, req.(*Condition))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Mysql_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "auth.Mysql",
 	HandlerType: (*MysqlServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "QueryUserByUsername",
-			Handler:    _Mysql_QueryUserByUsername_Handler,
-		},
 		{
 			MethodName: "InsertUser",
 			Handler:    _Mysql_InsertUser_Handler,
@@ -357,7 +502,17 @@ var _Mysql_serviceDesc = grpc.ServiceDesc{
 			MethodName: "UpdateUser",
 			Handler:    _Mysql_UpdateUser_Handler,
 		},
+		{
+			MethodName: "DeleteUser",
+			Handler:    _Mysql_DeleteUser_Handler,
+		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "QueryUsers",
+			Handler:       _Mysql_QueryUsers_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "mysql.proto",
 }

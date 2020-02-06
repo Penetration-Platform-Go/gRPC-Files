@@ -2,9 +2,10 @@ syntax = "proto3";
 package auth;
 
 service Mysql {
-  rpc QueryUserByUsername (Username) returns (UserInformation);
+  rpc QueryUsers (Condition) returns (stream UserInformation);
   rpc InsertUser (UserInformation) returns (Result);
   rpc UpdateUser (UserInformation) returns (Result);
+  rpc DeleteUser (Condition) returns (Result);
 }
 
 
@@ -23,4 +24,13 @@ message UserInformation {
 message Result {
   bool isVaild = 1;
   string value = 2;
+}
+
+message Value {
+  string key = 1;
+  string value = 2;
+}
+
+message Condition {
+  repeated Value value = 1;
 }
