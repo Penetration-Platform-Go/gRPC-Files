@@ -4,7 +4,7 @@ package mongodb;
 service MongoDB {
   rpc QueryProjects (Condition) returns (stream ProjectInformation);
   rpc InsertProject (ProjectInformation) returns (Result);
-  rpc UpdateProject (ProjectInformation) returns (Result);
+  rpc UpdateProject (UpdateMessage) returns (Result);
   rpc DeleteProject (Condition) returns (Result);
 }
 
@@ -42,4 +42,9 @@ message Value {
 
 message Condition {
   repeated Value value = 1;
+}
+
+message UpdateMessage {
+  Condition condition = 1;
+  repeated Value value = 2;
 }
