@@ -46,5 +46,6 @@ message Condition {
 
 message UpdateMessage {
   Condition condition = 1;
-  repeated Value value = 2;
+  repeated string key = 2;
+  ProjectInformation value = 3; 
 }
