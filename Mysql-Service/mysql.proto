@@ -4,7 +4,7 @@ package auth;
 service Mysql {
   rpc QueryUsers (Condition) returns (stream UserInformation);
   rpc InsertUser (UserInformation) returns (Result);
-  rpc UpdateUser (UserInformation) returns (Result);
+  rpc UpdateUser (Condition) returns (Result);
   rpc DeleteUser (Condition) returns (Result);
 }
 
