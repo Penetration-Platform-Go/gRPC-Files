@@ -25,9 +25,10 @@ message Map {
 message ProjectInformation {
   string id = 1;
   string user = 2;
-  int32 score = 3;
-  repeated Ip ip = 4;
-  Map map = 5;
+  string title = 3;
+  int32 score = 4;
+  repeated Ip ip = 5;
+  Map map = 6;
 }
 
 message Result {
