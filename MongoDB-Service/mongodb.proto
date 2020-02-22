@@ -6,6 +6,15 @@ service MongoDB {
   rpc InsertProject (ProjectInformation) returns (Result);
   rpc UpdateProject (UpdateMessage) returns (Result);
   rpc DeleteProject (Condition) returns (Result);
+  rpc QueryViews (Condition) returns (stream Views);
+  rpc AddViews (Empty) returns (Empty);
+}
+
+message Empty{}
+
+message Views {
+  string key = 1;
+  string value = 2;
 }
 
 message Ip {
