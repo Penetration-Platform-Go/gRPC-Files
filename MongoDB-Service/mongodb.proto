@@ -17,9 +17,10 @@ message Views {
   int32 value = 2;
 }
 
-message Ip {
-  string id = 1;
-  string value = 2; 
+message Equipment {
+  string name = 1;
+  string ip = 2;
+  string type = 3; 
 }
 
 message Column {
@@ -27,8 +28,7 @@ message Column {
 }
 
 message Map {
-  string id = 1;
-  repeated Column column = 2;
+  repeated Column column = 1;
 }
 
 message ProjectInformation {
@@ -36,7 +36,7 @@ message ProjectInformation {
   string user = 2;
   string title = 3;
   int32 score = 4;
-  repeated Ip ip = 5;
+  repeated Equipment equipment = 5;
   Map map = 6;
 }
 
