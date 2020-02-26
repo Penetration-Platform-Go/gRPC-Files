@@ -19,7 +19,7 @@ message Views {
 
 message Equipment {
   string name = 1;
-  string ip = 2;
+  repeated string ip = 2;
   string type = 3; 
 }
 
